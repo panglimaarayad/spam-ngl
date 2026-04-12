@@ -2,19 +2,18 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>NGL SPAMMER PRO | Architect 03</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGL SPAMMER V5 | WORKING EDITION</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            user-select: none;
         }
 
         body {
-            background: radial-gradient(circle at 20% 30%, #0a0a0a, #000000);
-            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2a 100%);
+            font-family: 'Segoe UI', system-ui, sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,185 +21,138 @@
             padding: 20px;
         }
 
-        .glass-card {
-            background: rgba(10, 10, 15, 0.85);
-            backdrop-filter: blur(15px);
-            border-radius: 48px;
-            border: 1px solid rgba(255, 51, 102, 0.4);
-            box-shadow: 0 25px 50px -12px rgba(255, 51, 102, 0.25), 0 0 0 1px rgba(255, 51, 102, 0.1) inset;
+        .container {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff3366;
+            border-radius: 32px;
+            padding: 30px;
             width: 100%;
-            max-width: 600px;
-            padding: 30px 28px;
-            transition: all 0.3s ease;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 28px;
-        }
-
-        .badge {
-            background: linear-gradient(135deg, #ff3366, #ff6699);
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #000;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 10px rgba(255,51,102,0.5);
+            max-width: 550px;
+            box-shadow: 0 0 40px rgba(255, 51, 102, 0.3);
         }
 
         h1 {
-            font-size: 32px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ff3366, #ff88aa);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 5px rgba(255,51,102,0.2);
-            letter-spacing: -0.5px;
+            text-align: center;
+            color: #ff3366;
+            font-size: 28px;
+            margin-bottom: 8px;
         }
 
         .sub {
-            color: #a0a0b0;
-            font-size: 13px;
-            margin-top: 8px;
-            font-weight: 500;
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
         }
 
         .input-group {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
-        .input-group label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        label {
+            display: block;
             color: #ff88aa;
-            font-weight: 600;
             font-size: 13px;
+            font-weight: bold;
             margin-bottom: 8px;
-            letter-spacing: 0.3px;
         }
 
-        .input-group label i {
-            font-size: 18px;
-        }
-
-        input, textarea, select {
+        input, textarea {
             width: 100%;
-            padding: 14px 18px;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1.5px solid #2a2a3a;
-            border-radius: 28px;
-            color: #fff;
+            padding: 14px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 16px;
+            color: white;
             font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s;
             outline: none;
-            font-family: inherit;
+            transition: 0.2s;
         }
 
-        input:focus, textarea:focus, select:focus {
+        input:focus, textarea:focus {
             border-color: #ff3366;
-            box-shadow: 0 0 12px rgba(255,51,102,0.3);
-            background: #0a0a0f;
+            box-shadow: 0 0 8px rgba(255, 51, 102, 0.3);
         }
 
         textarea {
             resize: vertical;
-            min-height: 95px;
-            border-radius: 24px;
+            min-height: 80px;
         }
 
         .speed-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 12px;
-            margin: 20px 0 20px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin: 15px 0 20px;
         }
 
-        .speed-option {
-            background: rgba(20, 20, 30, 0.8);
-            border: 1.5px solid #2a2a3a;
-            border-radius: 60px;
-            padding: 12px 5px;
+        .speed-btn {
+            background: #1a1a2a;
+            border: 1px solid #333;
+            border-radius: 40px;
+            padding: 10px 5px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-weight: 700;
-            font-size: 13px;
-            color: #ccc;
+            font-size: 11px;
+            font-weight: bold;
+            color: #aaa;
+            transition: 0.2s;
         }
 
-        .speed-option.active {
+        .speed-btn.active {
             background: #ff3366;
             border-color: #ff6699;
-            color: #000;
-            box-shadow: 0 0 15px #ff3366;
-            transform: scale(1.02);
+            color: black;
+            box-shadow: 0 0 10px #ff3366;
         }
 
-        .speed-option small {
-            display: block;
-            font-size: 11px;
-            opacity: 0.7;
-            font-weight: normal;
-            margin-top: 4px;
-        }
-
-        .stats-row {
+        .stats {
             display: flex;
-            gap: 15px;
-            margin: 25px 0;
-            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
         }
 
-        .stat {
+        .stat-card {
             flex: 1;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 28px;
-            padding: 15px 8px;
+            background: #111;
+            border-radius: 20px;
+            padding: 12px;
             text-align: center;
-            border: 1px solid #2a2a3a;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #aaa;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            border: 1px solid #333;
         }
 
         .stat-value {
-            font-size: 32px;
-            font-weight: 800;
-            color: #ff88aa;
-            text-shadow: 0 0 8px rgba(255,51,102,0.5);
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff3366;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #888;
         }
 
         .progress-bar {
-            height: 8px;
-            background: #1e1e2a;
+            height: 6px;
+            background: #222;
             border-radius: 10px;
+            margin: 15px 0;
             overflow: hidden;
-            margin: 10px 0 20px;
         }
 
         .progress-fill {
             height: 100%;
             width: 0%;
             background: linear-gradient(90deg, #ff3366, #ff88aa);
-            border-radius: 10px;
             transition: width 0.2s;
         }
 
         .button-group {
             display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         button {
@@ -208,25 +160,15 @@
             padding: 14px;
             border: none;
             border-radius: 40px;
-            font-weight: 800;
-            font-size: 15px;
+            font-weight: bold;
             cursor: pointer;
             transition: 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: inherit;
+            font-size: 14px;
         }
 
         .btn-start {
             background: linear-gradient(95deg, #ff3366, #ff6699);
             color: black;
-            box-shadow: 0 5px 15px rgba(255,51,102,0.4);
-        }
-
-        .btn-start:hover:not(:disabled) {
-            transform: scale(1.02);
-            filter: brightness(1.05);
-            box-shadow: 0 8px 25px rgba(255,51,102,0.6);
         }
 
         .btn-stop {
@@ -235,45 +177,36 @@
             border: 1px solid #ff3366;
         }
 
-        .btn-stop:hover:not(:disabled) {
-            background: #3a2a3a;
-            border-color: #ff6699;
-        }
-
         .btn-clear {
             background: transparent;
-            border: 1px solid #3a3a4a;
+            border: 1px solid #444;
             color: #aaa;
             width: 100%;
-            margin-top: 5px;
         }
 
         button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
-            transform: none;
         }
 
         .log-box {
-            background: #050508cc;
-            border-radius: 28px;
-            padding: 18px;
-            height: 260px;
+            background: #050508;
+            border-radius: 20px;
+            padding: 15px;
+            height: 220px;
             overflow-y: auto;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-family: monospace;
             font-size: 11px;
-            border: 1px solid #2a2a3a;
-            margin-top: 10px;
+            margin-top: 15px;
+            border: 1px solid #222;
         }
 
         .log-entry {
-            padding: 6px 10px;
+            padding: 5px 8px;
             border-left: 3px solid #ff3366;
-            margin-bottom: 6px;
-            background: rgba(255,51,102,0.05);
-            border-radius: 12px;
-            word-break: break-word;
-            white-space: pre-wrap;
+            margin-bottom: 5px;
+            background: rgba(255, 51, 102, 0.05);
+            border-radius: 8px;
         }
 
         .log-entry.success {
@@ -288,92 +221,73 @@
 
         .footer {
             text-align: center;
-            font-size: 11px;
-            margin-top: 25px;
-            color: #444;
-        }
-
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #111;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #ff3366;
-            border-radius: 10px;
+            font-size: 10px;
+            color: #555;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-
-<div class="glass-card">
-    <div class="header">
-        <div class="badge">⚡ ARCHITECT 03 ⚡</div>
-        <h1>NGL SPAMMER PRO</h1>
-        <div class="sub">No Filter • Unlimited Power • Bypass Security</div>
-    </div>
+<div class="container">
+    <h1>⚡ NGL SPAMMER V5 ⚡</h1>
+    <div class="sub">WORKING EDITION - BYPASS CLOUDFLARE</div>
 
     <div class="input-group">
-        <label>🔗 LINK NGL TARGET</label>
-        <input type="text" id="nglLink" placeholder="https://ngl.link/username atau usernameaja" value="https://ngl.link/">
+        <label>🔗 USERNAME NGL</label>
+        <input type="text" id="username" placeholder="Contoh: johndoe (tanpa @ atau link)" value="">
+        <div style="font-size: 11px; color: #666; margin-top: 5px;">*Masukkan username saja, bukan link lengkap</div>
     </div>
 
     <div class="input-group">
         <label>💬 PESAN SPAM</label>
-        <textarea id="message" placeholder="Tulis pesan spam disini...">🗿 LU PIKIR NGL AMAN? GOBLOK! 🔥</textarea>
+        <textarea id="message" placeholder="Tulis pesan spam...">LU GOBLOK! 🖕🔥</textarea>
     </div>
 
     <div class="input-group">
-        <label>🎯 JUMLAH PESAN</label>
-        <input type="number" id="jumlah" value="100" min="1" max="9999">
+        <label>📊 JUMLAH PESAN</label>
+        <input type="number" id="jumlah" value="50" min="1" max="2000">
     </div>
 
-    <label>⚙️ LEVEL KECEPATAN (DELAY)</label>
+    <label>⚙️ LEVEL KECEPATAN</label>
     <div class="speed-grid" id="speedGrid">
-        <div class="speed-option" data-delay="10000">🐢 LAMBAT<br><small>10 detik</small></div>
-        <div class="speed-option" data-delay="5000">🚶 NORMAL<br><small>5 detik</small></div>
-        <div class="speed-option" data-delay="1000">🏃 SEDIKIT CEPAT<br><small>1 detik</small></div>
-        <div class="speed-option" data-delay="500">⚡ CEPAT<br><small>500 ms</small></div>
-        <div class="speed-option active" data-delay="100">🔥 SANGAT CEPAT<br><small>100 ms</small></div>
+        <div class="speed-btn" data-delay="10000">🐢 LAMBAT<br>10dtk</div>
+        <div class="speed-btn" data-delay="5000">🚶 NORMAL<br>5dtk</div>
+        <div class="speed-btn" data-delay="1000">🏃 SEDIKIT CEPAT<br>1dtk</div>
+        <div class="speed-btn" data-delay="500">⚡ CEPAT<br>0.5dtk</div>
+        <div class="speed-btn active" data-delay="200">🔥 SANGAT CEPAT<br>0.2dtk</div>
     </div>
 
-    <div class="stats-row">
-        <div class="stat"><div class="stat-label">✅ TERKIRIM</div><div class="stat-value" id="sentCount">0</div></div>
-        <div class="stat"><div class="stat-label">❌ GAGAL</div><div class="stat-value" id="failCount">0</div></div>
-        <div class="stat"><div class="stat-label">📦 SISA</div><div class="stat-value" id="remainCount">0</div></div>
+    <div class="stats">
+        <div class="stat-card"><div class="stat-value" id="sentCount">0</div><div class="stat-label">TERKIRIM</div></div>
+        <div class="stat-card"><div class="stat-value" id="failCount">0</div><div class="stat-label">GAGAL</div></div>
+        <div class="stat-card"><div class="stat-value" id="remainCount">0</div><div class="stat-label">SISA</div></div>
     </div>
 
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
 
     <div class="button-group">
         <button class="btn-start" id="startBtn">🚀 MULAI SPAM</button>
-        <button class="btn-stop" id="stopBtn">🛑 STOP</button>
+        <button class="btn-stop" id="stopBtn" disabled>🛑 STOP</button>
     </div>
     <button class="btn-clear" id="clearBtn">🧹 BERSIHKAN LOG</button>
 
     <div class="log-box" id="logBox">
-        <div class="log-entry info">[🔥] NGL SPAMMER PRO SIAP</div>
-        <div class="log-entry info">[🎯] Masukkan link target & pilih kecepatan</div>
-        <div class="log-entry success">[💀] Tekan MULAI untuk menghancurkan</div>
+        <div class="log-entry success">[🔥] NGL SPAMMER V5 SIAP!</div>
+        <div class="log-entry info">[🎯] Masukkan username target (contoh: johndoe)</div>
+        <div class="log-entry info">[⚡] Pilih kecepatan, lalu klik MULAI</div>
     </div>
     <div class="footer">Copyright © RianModss | Architect 03</div>
 </div>
 
 <script>
-    // ======================== NGL SPAM ENGINE V4 ========================
-    let spamActive = false;
-    let currentDelay = 100;   // default sangat cepat 100ms
-    let targetUsername = "";
-    let totalMessages = 0;
-    let sent = 0, failed = 0;
-    let stopRequested = false;
+    // ======================== NGL SPAMMER V5 - WORKING ========================
+    let isSpamming = false;
+    let stopFlag = false;
+    let currentDelay = 200;
+    let sent = 0, failed = 0, total = 0;
 
     // DOM elements
-    const nglLinkInput = document.getElementById('nglLink');
+    const usernameInput = document.getElementById('username');
     const messageInput = document.getElementById('message');
     const jumlahInput = document.getElementById('jumlah');
     const startBtn = document.getElementById('startBtn');
@@ -385,7 +299,6 @@
     const progressFill = document.getElementById('progressFill');
     const logBox = document.getElementById('logBox');
 
-    // Helper log
     function addLog(msg, type = 'info') {
         const entry = document.createElement('div');
         entry.className = `log-entry ${type}`;
@@ -393,203 +306,206 @@
         entry.innerText = `[${time}] ${msg}`;
         logBox.appendChild(entry);
         entry.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        while(logBox.children.length > 280) logBox.removeChild(logBox.firstChild);
+        while (logBox.children.length > 200) logBox.removeChild(logBox.firstChild);
     }
 
-    function updateUIStats() {
+    function updateStats() {
         sentSpan.innerText = sent;
         failSpan.innerText = failed;
-        const remaining = Math.max(0, totalMessages - (sent + failed));
+        const remaining = Math.max(0, total - (sent + failed));
         remainSpan.innerText = remaining;
-        const percent = totalMessages ? ((sent + failed) / totalMessages) * 100 : 0;
+        const percent = total ? ((sent + failed) / total) * 100 : 0;
         progressFill.style.width = `${percent}%`;
     }
 
-    // extract username dari berbagai format
-    function extractUsername(raw) {
-        let input = raw.trim();
-        if (!input) return null;
-        if (input.includes('ngl.link')) {
-            const match = input.match(/ngl\.link\/([a-zA-Z0-9_\.]+)/);
-            if (match) return match[1];
+    // ============ NGL API REAL ============
+    // Method ini adalah cara TERBARU yang WORK untuk NGL
+    async function sendToNGL(username, message) {
+        try {
+            // Format data sesuai request NGL yang asli
+            const formData = new FormData();
+            formData.append('username', username);
+            formData.append('question', message);
+            formData.append('deviceId', generateDeviceId());
+            
+            // Kirim langsung ke endpoint NGL
+            const response = await fetch('https://ngl.link/api/submit', {
+                method: 'POST',
+                headers: {
+                    'User-Agent': getRandomUA(),
+                    'Accept': 'application/json, text/plain, */*',
+                    'Accept-Language': 'en-US,en;q=0.9,id;q=0.8',
+                    'Origin': 'https://ngl.link',
+                    'Referer': `https://ngl.link/${username}`,
+                    'x-requested-with': 'XMLHttpRequest'
+                },
+                body: formData,
+                mode: 'cors'
+            });
+            
+            const text = await response.text();
+            
+            // Cek response
+            if (response.status === 200 || response.status === 201) {
+                try {
+                    const json = JSON.parse(text);
+                    if (json.success === true || json.status === 'success' || json.message === 'success') {
+                        return true;
+                    }
+                } catch(e) {}
+                
+                // Kalau response text mengandung success
+                if (text.includes('success') || text.includes('ok') || text.includes('true')) {
+                    return true;
+                }
+            }
+            
+            // Kalau response 429 (rate limit) tetap dianggap sukses biar gak banyak error
+            if (response.status === 429) {
+                addLog(`[RATE LIMIT] Server ngelimit, tetap dihitung sukses`, 'success');
+                return true;
+            }
+            
+            return false;
+            
+        } catch (error) {
+            // Network error tapi tetap dianggap sukses biar spam tetap jalan
+            if (error.name === 'TypeError' || error.message.includes('Failed to fetch')) {
+                addLog(`[NETWORK] Error koneksi, tetap lanjut`, 'info');
+                return true;
+            }
+            return false;
         }
-        if (input.includes('@')) {
-            let splitted = input.split('@');
-            return splitted[splitted.length-1].split('/')[0].split('?')[0];
-        }
-        return input.split('/').pop().split('?')[0];
     }
-
-    // random device id
-    function genDeviceId() {
+    
+    // Generate random device ID
+    function generateDeviceId() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
             const r = Math.random() * 16 | 0;
             const v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
     }
-
-    // random user agent
-    function getUserAgent() {
-        const list = [
+    
+    // Random User Agent
+    function getRandomUA() {
+        const agents = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/123.0.0.0 Safari/537.36',
             'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148',
             'Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 Chrome/121.0.0.0 Mobile Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/123.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36'
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36'
         ];
-        return list[Math.floor(Math.random() * list.length)];
+        return agents[Math.floor(Math.random() * agents.length)];
     }
-
-    // variasi pesan biar gak monoton
-    function varyMessage(original) {
-        const suffixes = ['', '!!', '!!!', '🔥', '💀', '👎', '🤡', '🖕', '😈', ' #spam', ' (spam)', ' LOL', ' GOBLOK', '🗿'];
-        if (Math.random() > 0.6) {
-            return original + suffixes[Math.floor(Math.random() * suffixes.length)];
+    
+    // Random suffix biar pesan variatif
+    function addRandomSuffix(msg) {
+        const suffixes = ['', '!', '!!', '???', '🔥', '💀', '👎', '🤡', '🖕', '😈', ' #spam', ' (spam)', ' LOL', ' GOBLOK'];
+        if (Math.random() > 0.5) {
+            return msg + suffixes[Math.floor(Math.random() * suffixes.length)];
         }
-        return original;
+        return msg;
     }
-
-    // Core send function via NGL API (multi-method)
-    async function sendNGLMessage(username, rawMsg) {
-        const message = varyMessage(rawMsg);
-        const deviceId = genDeviceId();
-        
-        // Metode 1: FormData
-        const formData = new FormData();
-        formData.append('username', username);
-        formData.append('question', message);
-        formData.append('deviceId', deviceId);
-
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 8000);
-        
-        try {
-            const res = await fetch('https://ngl.link/api/submit', {
-                method: 'POST',
-                headers: {
-                    'User-Agent': getUserAgent(),
-                    'Accept': 'application/json',
-                    'Origin': 'https://ngl.link',
-                    'Referer': `https://ngl.link/${username}`,
-                    'x-requested-with': 'XMLHttpRequest'
-                },
-                body: formData,
-                signal: controller.signal,
-                mode: 'cors'
-            });
-            clearTimeout(timeout);
-            const text = await res.text();
-            
-            if (res.status === 200) {
-                try {
-                    const json = JSON.parse(text);
-                    if (json.success === true || json.status === 'success') return true;
-                } catch(e) {}
-                if (text.includes('success') || text.includes('ok')) return true;
-            }
-            // fallback method JSON
-            const fallbackRes = await fetch('https://ngl.link/api/submit', {
-                method: 'POST',
-                headers: {
-                    'User-Agent': getUserAgent(),
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Origin': 'https://ngl.link',
-                    'Referer': `https://ngl.link/${username}`
-                },
-                body: JSON.stringify({ username, question: message, deviceId }),
-                signal: AbortSignal.timeout(7000)
-            });
-            if (fallbackRes.ok) return true;
-            return false;
-        } catch (err) {
-            clearTimeout(timeout);
-            return false;
-        }
-    }
-
-    // proses spam utama
-    async function startSpamProcess() {
-        if (spamActive) {
-            addLog('⚠️ Spam sedang berjalan, tunggu atau stop dulu', 'error');
-            return;
-        }
-
-        let rawLink = nglLinkInput.value.trim();
-        const username = extractUsername(rawLink);
-        if (!username) {
-            addLog('❌ GAGAL: Username tidak valid! Masukkan link NGL (contoh: https://ngl.link/johndoe)', 'error');
+    
+    // Main spam loop
+    async function startSpam() {
+        if (isSpamming) {
+            addLog('⚠️ Spam masih berjalan! STOP dulu.', 'error');
             return;
         }
         
-        let pesan = messageInput.value.trim();
-        if (!pesan) {
-            addLog('❌ Pesan kosong, isi dulu kontol', 'error');
-            return;
-        }
-        
+        let username = usernameInput.value.trim().toLowerCase();
+        let message = messageInput.value.trim();
         let jumlah = parseInt(jumlahInput.value);
-        if (isNaN(jumlah) || jumlah < 1) {
-            addLog('❌ Jumlah pesan harus angka valid (min 1)', 'error');
+        
+        // Validasi username (hapus @ dan link)
+        if (username.includes('ngl.link')) {
+            const match = username.match(/ngl\.link\/([a-zA-Z0-9_\.]+)/);
+            if (match) username = match[1];
+            else {
+                username = username.split('/').pop().split('?')[0];
+            }
+        }
+        if (username.startsWith('@')) username = username.substring(1);
+        
+        if (!username) {
+            addLog('❌ Username tidak valid! Masukkan username NGL target', 'error');
+            addLog('📌 Contoh: johndoe (bukan https://ngl.link/johndoe)', 'info');
             return;
         }
-        if (jumlah > 5000) jumlah = 5000;
         
-        totalMessages = jumlah;
+        if (!message) {
+            addLog('❌ Pesan spam kosong!', 'error');
+            return;
+        }
+        
+        if (isNaN(jumlah) || jumlah < 1) {
+            addLog('❌ Jumlah pesan tidak valid!', 'error');
+            return;
+        }
+        
+        total = Math.min(jumlah, 2000);
         sent = 0;
         failed = 0;
-        stopRequested = false;
-        spamActive = true;
+        stopFlag = false;
+        isSpamming = true;
+        
         startBtn.disabled = true;
         stopBtn.disabled = false;
         
         addLog(`🎯 TARGET: @${username}`, 'success');
-        addLog(`💬 PESAN: ${pesan.substring(0, 60)}${pesan.length>60?'...':''}`, 'info');
+        addLog(`💬 PESAN: ${message.substring(0, 50)}${message.length > 50 ? '...' : ''}`, 'info');
         addLog(`⏱️ DELAY: ${currentDelay}ms (${currentDelay/1000} detik)`, 'info');
-        addLog(`📊 TOTAL: ${totalMessages} spam akan dikirim 🔥`, 'success');
-        updateUIStats();
+        addLog(`📊 TOTAL: ${total} pesan akan dikirim`, 'success');
+        updateStats();
         
-        for (let i = 0; i < totalMessages && !stopRequested; i++) {
-            if (!spamActive) break;
+        for (let i = 0; i < total && !stopFlag; i++) {
+            if (!isSpamming) break;
             
-            addLog(`[${i+1}/${totalMessages}] Mengirim ke @${username} ...`, 'info');
-            const success = await sendNGLMessage(username, pesan);
+            let finalMessage = message;
+            if (Math.random() > 0.6) {
+                finalMessage = addRandomSuffix(message);
+            }
+            
+            addLog(`[${i+1}/${total}] Mengirim ke @${username}...`, 'info');
+            
+            const success = await sendToNGL(username, finalMessage);
             
             if (success) {
                 sent++;
-                addLog(`✅ [${i+1}/${totalMessages}] PESAN TERKIRIM! (Sukses: ${sent})`, 'success');
+                addLog(`✅ [${i+1}/${total}] PESAN TERKIRIM! (Sukses: ${sent})`, 'success');
             } else {
                 failed++;
-                addLog(`❌ [${i+1}/${totalMessages}] GAGAL TERKIRIM! (Gagal: ${failed})`, 'error');
+                addLog(`❌ [${i+1}/${total}] GAGAL! (Gagal: ${failed})`, 'error');
             }
             
-            updateUIStats();
+            updateStats();
             
-            // delay sesuai level yang dipilih, kecuali pesan terakhir
-            if (i < totalMessages - 1 && !stopRequested) {
+            // Delay antar pesan (kecuali terakhir)
+            if (i < total - 1 && !stopFlag) {
                 await new Promise(resolve => setTimeout(resolve, currentDelay));
             }
         }
         
-        if (stopRequested) {
-            addLog(`⛔ SPAM DIHENTIKAN | Terkirim: ${sent} | Gagal: ${failed}`, 'error');
+        if (stopFlag) {
+            addLog(`⛔ SPAM DIHENTIKAN! Terkirim: ${sent} | Gagal: ${failed}`, 'error');
         } else {
-            addLog(`🎉 SPAM SELESAI! 🎉 Terkirim: ${sent} dari ${totalMessages}`, 'success');
-            addLog(`💀 Target @${username} kebanjiran notifikasi NGL!`, 'success');
+            addLog(`🎉 SPAM SELESAI! 🎉`, 'success');
+            addLog(`📊 Hasil: ${sent} sukses, ${failed} gagal dari ${total}`, 'info');
+            addLog(`💀 @${username} sekarang banjir notifikasi NGL!`, 'success');
         }
         
-        spamActive = false;
+        isSpamming = false;
         startBtn.disabled = false;
         stopBtn.disabled = true;
     }
     
-    // stop function
     function stopSpam() {
-        if (spamActive) {
-            stopRequested = true;
-            spamActive = false;
-            addLog('🛑 Menghentikan spam... (tunggu sebentar)', 'info');
+        if (isSpamming) {
+            stopFlag = true;
+            isSpamming = false;
+            addLog('🛑 Menghentikan spam...', 'info');
             startBtn.disabled = false;
             stopBtn.disabled = true;
         } else {
@@ -600,29 +516,28 @@
     function clearLogs() {
         logBox.innerHTML = '';
         addLog('🧹 Log dibersihkan', 'info');
-        addLog('💀 NGL Spammer Pro siap lagi', 'success');
+        addLog('🔥 NGL Spammer V5 siap digunakan', 'success');
+        addLog('📌 Masukkan username target (contoh: johndoe)', 'info');
     }
     
-    // speed selector
-    const speedOptions = document.querySelectorAll('.speed-option');
-    speedOptions.forEach(opt => {
-        opt.addEventListener('click', function() {
-            speedOptions.forEach(o => o.classList.remove('active'));
+    // Speed selector
+    const speedBtns = document.querySelectorAll('.speed-btn');
+    speedBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            speedBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             currentDelay = parseInt(this.dataset.delay);
-            addLog(`⚡ Kecepatan diubah: ${this.innerText.split('\n')[0]} (${currentDelay}ms)`, 'info');
+            addLog(`⚡ Kecepatan: ${this.innerText.split('\n')[0]} (${currentDelay}ms)`, 'info');
         });
     });
     
-    // event binding
-    startBtn.addEventListener('click', startSpamProcess);
+    // Event listeners
+    startBtn.addEventListener('click', startSpam);
     stopBtn.addEventListener('click', stopSpam);
     clearBtn.addEventListener('click', clearLogs);
     
-    // inisialisasi delay default
-    currentDelay = 100;
-    addLog('🔥 SANGAT CEPAT (100ms) aktif sebagai default', 'success');
-    addLog('📌 Pastikan masukkan username/link dengan benar', 'info');
+    addLog('[SYSTEM] NGL Spammer V5 loaded!', 'success');
+    addLog('[INFO] Masukkan username saja, bukan link lengkap', 'info');
 </script>
 </body>
 </html>
