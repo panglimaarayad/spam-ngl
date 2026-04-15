@@ -3,602 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGL SPAMMER V8 | FINAL WORKING</title>
+    <title>NGL SPAMMER UNGU - XYZ ALIEN</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2a 100%);
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #4b0082, #8a2be2);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
             padding: 20px;
         }
-
         .container {
-            background: rgba(0, 0, 0, 0.95);
-            border: 2px solid #00ff9d;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
             border-radius: 32px;
             padding: 30px;
-            width: 100%;
             max-width: 550px;
-            box-shadow: 0 0 40px rgba(0, 255, 157, 0.3);
+            width: 100%;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
         }
-
         h1 {
             text-align: center;
-            color: #00ff9d;
+            color: white;
+            margin-bottom: 10px;
             font-size: 28px;
-            margin-bottom: 8px;
-            text-shadow: 0 0 10px #00ff9d;
+            letter-spacing: 1px;
         }
-
-        .sub {
+        .alien {
             text-align: center;
-            color: #888;
-            font-size: 12px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 15px;
-        }
-
-        .input-group {
+            font-size: 40px;
             margin-bottom: 20px;
         }
-
         label {
             display: block;
-            color: #00ff9d;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 8px;
+            color: white;
+            font-weight: 500;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-size: 14px;
         }
-
         input, textarea {
             width: 100%;
-            padding: 14px;
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 16px;
+            padding: 14px 16px;
+            background: #2d1b3e;
+            border: 1px solid #b77aff;
+            border-radius: 24px;
             color: white;
-            font-size: 14px;
+            font-size: 15px;
             outline: none;
             transition: 0.2s;
+            font-family: monospace;
         }
-
         input:focus, textarea:focus {
-            border-color: #00ff9d;
-            box-shadow: 0 0 8px rgba(0, 255, 157, 0.3);
+            border-color: #ff66cc;
+            box-shadow: 0 0 8px #ff66cc;
+            background: #1e102c;
         }
-
         textarea {
             resize: vertical;
             min-height: 80px;
         }
-
-        .speed-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin: 15px 0 20px;
-        }
-
-        .speed-btn {
-            background: #1a1a2a;
-            border: 1px solid #333;
-            border-radius: 40px;
-            padding: 10px 5px;
-            text-align: center;
-            cursor: pointer;
-            font-size: 11px;
-            font-weight: bold;
-            color: #aaa;
-            transition: 0.2s;
-        }
-
-        .speed-btn.active {
-            background: #00ff9d;
-            border-color: #00ff9d;
-            color: black;
-            box-shadow: 0 0 10px #00ff9d;
-        }
-
-        .stats {
+        .row {
             display: flex;
-            gap: 12px;
-            margin: 20px 0;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-
-        .stat-card {
+        .row > div {
             flex: 1;
-            background: #111;
-            border-radius: 20px;
-            padding: 12px;
-            text-align: center;
-            border: 1px solid #333;
         }
-
-        .stat-value {
-            font-size: 28px;
-            font-weight: bold;
-            color: #00ff9d;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            color: #888;
-        }
-
-        .progress-bar {
-            height: 6px;
-            background: #222;
-            border-radius: 10px;
-            margin: 15px 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #00ff9d, #00ff9d);
-            transition: width 0.2s;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
         button {
-            flex: 1;
+            width: 100%;
+            margin-top: 25px;
             padding: 14px;
+            background: #ff44b0;
             border: none;
             border-radius: 40px;
+            font-size: 18px;
             font-weight: bold;
+            color: white;
             cursor: pointer;
             transition: 0.2s;
-            font-size: 14px;
+            box-shadow: 0 5px 0 #9e2a6b;
         }
-
-        .btn-start {
-            background: linear-gradient(95deg, #00ff9d, #00ff9d);
-            color: black;
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #9e2a6b;
         }
-
-        .btn-stop {
-            background: #2a2a3a;
-            color: #00ff9d;
-            border: 1px solid #00ff9d;
-        }
-
-        .btn-clear {
-            background: transparent;
-            border: 1px solid #444;
-            color: #aaa;
-            width: 100%;
-        }
-
-        button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .log-box {
-            background: #050508;
+        .status {
+            margin-top: 20px;
+            background: #000000aa;
             border-radius: 20px;
-            padding: 15px;
-            height: 260px;
-            overflow-y: auto;
+            padding: 12px;
+            color: #0f0;
             font-family: monospace;
-            font-size: 11px;
-            margin-top: 15px;
-            border: 1px solid #222;
+            font-size: 13px;
+            max-height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
         }
-
-        .log-entry {
-            padding: 5px 8px;
-            border-left: 3px solid #00ff9d;
-            margin-bottom: 5px;
-            background: rgba(0, 255, 157, 0.05);
-            border-radius: 8px;
-        }
-
-        .log-entry.success {
-            border-left-color: #00ff9d;
-            color: #aaffdd;
-        }
-
-        .log-entry.error {
-            border-left-color: #ff3366;
-            color: #ff8888;
-        }
-
         .footer {
             text-align: center;
-            font-size: 10px;
-            color: #555;
             margin-top: 20px;
+            color: #ffccff;
+            font-size: 12px;
         }
-        
-        .proxy-info {
-            background: #1a1a2a;
-            border-radius: 12px;
-            padding: 10px;
-            margin-bottom: 15px;
-            font-size: 11px;
-            text-align: center;
-            color: #ffaa00;
-            border: 1px solid #ffaa00;
+        ::placeholder {
+            color: #cba5ff;
+            opacity: 0.7;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>⚡ NGL SPAMMER V8 ⚡</h1>
-    <div class="sub">FINAL WORKING - CORS BYPASS</div>
-    
-    <div class="proxy-info">
-        🔧 USING CORS PROXY - BYPASS CLOUDFLARE & BLOCKING
+    <div class="alien">👽 XYZ ALIEN 👽</div>
+    <h1>NGL SPAMMER UNGU</h1>
+    <label>🔗 Username / Link Target (contoh: @bocil atau https://ngl.link/username)</label>
+    <input type="text" id="target" placeholder="@bocil_keren atau username aja" value="">
+
+    <label>💬 Isi Pesan (bisa pakai emoji)</label>
+    <textarea id="pesan" placeholder="Tulis pesan spam disini... misal: LO SERBA SALAH BANGSAT!"></textarea>
+
+    <div class="row">
+        <div>
+            <label>📦 Jumlah Pesan (00 = permanen 🔁)</label>
+            <input type="text" id="jumlah" value="10" placeholder="00 atau angka">
+        </div>
+        <div>
+            <label>⏱️ Delay (ms)</label>
+            <input type="number" id="delay" value="500" placeholder="milidetik">
+        </div>
     </div>
 
-    <div class="input-group">
-        <label>🔗 USERNAME NGL</label>
-        <input type="text" id="username" placeholder="Contoh: johndoe" value="aang38172">
-        <div style="font-size: 11px; color: #666; margin-top: 5px;">*Masukkan username saja, contoh: johndoe</div>
-    </div>
+    <button id="startBtn">🚀 MULAI SPAM NGL 👽</button>
+    <button id="stopBtn" style="background:#444; margin-top:10px; box-shadow:none;">⏹️ STOP SPAM</button>
 
-    <div class="input-group">
-        <label>💬 PESAN SPAM</label>
-        <textarea id="message" placeholder="Tulis pesan spam...">LU GOBLOK! 🖕🔥</textarea>
+    <div class="status" id="logArea">
+        [●] Siap menjalankan perintah King Angzz...
     </div>
-
-    <div class="input-group">
-        <label>📊 JUMLAH PESAN</label>
-        <input type="number" id="jumlah" value="50" min="1" max="2000">
-    </div>
-
-    <label>⚙️ LEVEL KECEPATAN</label>
-    <div class="speed-grid" id="speedGrid">
-        <div class="speed-btn" data-delay="10000">🐢 LAMBAT<br>10dtk</div>
-        <div class="speed-btn" data-delay="5000">🚶 NORMAL<br>5dtk</div>
-        <div class="speed-btn" data-delay="1000">🏃 SEDIKIT CEPAT<br>1dtk</div>
-        <div class="speed-btn" data-delay="500">⚡ CEPAT<br>0.5dtk</div>
-        <div class="speed-btn active" data-delay="300">🔥 SANGAT CEPAT<br>0.3dtk</div>
-    </div>
-
-    <div class="stats">
-        <div class="stat-card"><div class="stat-value" id="sentCount">0</div><div class="stat-label">TERKIRIM</div></div>
-        <div class="stat-card"><div class="stat-value" id="failCount">0</div><div class="stat-label">GAGAL</div></div>
-        <div class="stat-card"><div class="stat-value" id="remainCount">0</div><div class="stat-label">SISA</div></div>
-    </div>
-
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-
-    <div class="button-group">
-        <button class="btn-start" id="startBtn">🚀 MULAI SPAM</button>
-        <button class="btn-stop" id="stopBtn" disabled>🛑 STOP</button>
-    </div>
-    <button class="btn-clear" id="clearBtn">🧹 BERSIHKAN LOG</button>
-
-    <div class="log-box" id="logBox">
-        <div class="log-entry success">[🔥] NGL SPAMMER V8 SIAP!</div>
-        <div class="log-entry success">[✅] PAKAI CORS PROXY - PASTI KONEK!</div>
-        <div class="log-entry info">[🎯] Masukkan username target</div>
-    </div>
-    <div class="footer">Copyright © RianModss | Architect 03</div>
+    <div class="footer">POWERED BY @KINGANGZZ</div>
 </div>
 
 <script>
-    // ======================== NGL SPAMMER V8 - WITH CORS PROXY ========================
-    
     let isSpamming = false;
-    let stopFlag = false;
-    let currentDelay = 300;
-    let sent = 0, failed = 0, total = 0;
+    let stopRequested = false;
+    let currentInterval = null;
 
-    // CORS Proxy list (biar tembus Cloudflare)
-    const CORS_PROXIES = [
-        'https://api.allorigins.win/raw?url=',
-        'https://cors-anywhere.herokuapp.com/',
-        'https://cors-proxy.htmldriven.com/?url='
-    ];
-    
-    let currentProxyIndex = 0;
-
-    const usernameInput = document.getElementById('username');
-    const messageInput = document.getElementById('message');
-    const jumlahInput = document.getElementById('jumlah');
-    const startBtn = document.getElementById('startBtn');
-    const stopBtn = document.getElementById('stopBtn');
-    const clearBtn = document.getElementById('clearBtn');
-    const sentSpan = document.getElementById('sentCount');
-    const failSpan = document.getElementById('failCount');
-    const remainSpan = document.getElementById('remainCount');
-    const progressFill = document.getElementById('progressFill');
-    const logBox = document.getElementById('logBox');
-
-    function addLog(msg, type = 'info') {
-        const entry = document.createElement('div');
-        entry.className = `log-entry ${type}`;
-        const time = new Date().toLocaleTimeString('id-ID');
-        entry.innerText = `[${time}] ${msg}`;
-        logBox.appendChild(entry);
-        entry.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        while (logBox.children.length > 250) logBox.removeChild(logBox.firstChild);
+    // Fungsi ekstrak username dari NGL
+    function extractUsername(input) {
+        let clean = input.trim();
+        if (clean.includes("ngl.link/")) {
+            let split = clean.split("ngl.link/");
+            let user = split[split.length-1].split("?")[0].split("#")[0];
+            return user;
+        }
+        if (clean.startsWith("@")) {
+            return clean.substring(1);
+        }
+        return clean;
     }
 
-    function updateStats() {
-        sentSpan.innerText = sent;
-        failSpan.innerText = failed;
-        const remaining = Math.max(0, total - (sent + failed));
-        remainSpan.innerText = remaining;
-        const percent = total ? ((sent + failed) / total) * 100 : 0;
-        progressFill.style.width = `${percent}%`;
-    }
-
-    function generateDeviceId() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            const r = Math.random() * 16 | 0;
-            const v = c === 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
-    }
-    
-    function getRandomUA() {
-        const agents = [
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/123.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148',
-            'Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 Chrome/121.0.0.0 Mobile Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36'
-        ];
-        return agents[Math.floor(Math.random() * agents.length)];
-    }
-    
-    function addRandomSuffix(msg) {
-        const suffixes = ['', '!', '!!', '!!!', '?', '???', '🔥', '💀', '👎', '🤡', '🖕', '😈', ' #spam', ' (spam)', ' LOL', ' GOBLOK', '🗿'];
-        if (Math.random() > 0.5) {
-            return msg + suffixes[Math.floor(Math.random() * suffixes.length)];
-        }
-        return msg;
-    }
-    
-    // ============ SEND VIA CORS PROXY (PASTI TEMBUS) ============
-    async function sendToNGL(username, message) {
-        const payload = {
-            username: username,
-            question: message,
-            deviceId: generateDeviceId(),
-            gameSlug: '',
-            referrer: ''
-        };
+    async function sendSpam(targetUser, message, delayMs, maxCount, logElement) {
+        // Endpoint NGL yang asli (API terbaru)
+        const url = "https://ngl.link/api/submit";
+        let sent = 0;
+        let failed = 0;
         
-        // Method 1: Direct fetch (kadang kena CORS)
-        try {
-            const directResponse = await fetch('https://ngl.link/api/submit', {
-                method: 'POST',
-                headers: {
-                    'User-Agent': getRandomUA(),
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Origin': 'https://ngl.link',
-                    'Referer': 'https://ngl.link/'
-                },
-                body: JSON.stringify(payload),
-                mode: 'cors'
-            });
+        // Kalau maxCount = 0 (00) -> loop sampe stop manual
+        let isInfinite = (maxCount === 0);
+        let loopCount = 0;
+        
+        while (isSpamming && (isInfinite || loopCount < maxCount)) {
+            if (stopRequested) break;
             
-            if (directResponse.ok) {
-                const result = await directResponse.json();
-                if (result.success === true) return true;
-            }
-        } catch(e) {
-            // CORS error, lanjut ke method proxy
-            console.log('Direct failed, using proxy');
-        }
-        
-        // Method 2: Pake CORS proxy (ALL ORIGINS)
-        try {
-            const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent('https://ngl.link/api/submit')}`;
+            const payload = new URLSearchParams();
+            payload.append("username", targetUser);
+            payload.append("question", message);
+            payload.append("deviceId", "xyz_alien_" + Date.now() + Math.random());
             
-            const proxyResponse = await fetch(proxyUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload)
-            });
-            
-            if (proxyResponse.ok) {
-                return true;
-            }
-        } catch(e) {}
-        
-        // Method 3: Pake Cors Anywhere
-        try {
-            const corsUrl = `https://cors-anywhere.herokuapp.com/https://ngl.link/api/submit`;
-            
-            const corsResponse = await fetch(corsUrl, {
-                method: 'POST',
-                headers: {
-                    'User-Agent': getRandomUA(),
-                    'Content-Type': 'application/json',
-                    'Origin': 'https://ngl.link'
-                },
-                body: JSON.stringify(payload)
-            });
-            
-            if (corsResponse.ok) {
-                return true;
-            }
-        } catch(e) {}
-        
-        // Method 4: PAKE JSONP STYLE (last resort)
-        try {
-            const formData = new URLSearchParams();
-            formData.append('username', username);
-            formData.append('question', message);
-            formData.append('deviceId', generateDeviceId());
-            
-            const lastResort = await fetch('https://ngl.link/api/submit', {
-                method: 'POST',
-                headers: {
-                    'User-Agent': getRandomUA(),
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: formData.toString()
-            });
-            
-            if (lastResort.ok) return true;
-        } catch(e) {}
-        
-        return false;
-    }
-    
-    async function startSpam() {
-        if (isSpamming) {
-            addLog('⚠️ Spam masih berjalan! STOP dulu.', 'error');
-            return;
-        }
-        
-        let username = usernameInput.value.trim().toLowerCase();
-        let message = messageInput.value.trim();
-        let jumlah = parseInt(jumlahInput.value);
-        
-        // Auto extract dari link
-        if (username.includes('ngl.link')) {
-            const match = username.match(/ngl\.link\/([a-zA-Z0-9_\.]+)/);
-            if (match) {
-                username = match[1];
-            } else {
-                username = username.split('/').pop().split('?')[0];
-            }
-        }
-        
-        // Hapus @
-        if (username.startsWith('@')) {
-            username = username.substring(1);
-        }
-        
-        if (!username || username.length < 2) {
-            addLog('❌ Username tidak valid!', 'error');
-            return;
-        }
-        
-        if (!message) {
-            addLog('❌ Pesan spam kosong!', 'error');
-            return;
-        }
-        
-        if (isNaN(jumlah) || jumlah < 1) {
-            addLog('❌ Jumlah pesan tidak valid!', 'error');
-            return;
-        }
-        
-        total = Math.min(jumlah, 2000);
-        sent = 0;
-        failed = 0;
-        stopFlag = false;
-        isSpamming = true;
-        
-        startBtn.disabled = true;
-        stopBtn.disabled = false;
-        
-        addLog(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`, 'info');
-        addLog(`🎯 TARGET: @${username}`, 'success');
-        addLog(`💬 PESAN: ${message.substring(0, 50)}${message.length > 50 ? '...' : ''}`, 'info');
-        addLog(`⏱️ DELAY: ${currentDelay}ms (${currentDelay/1000} detik)`, 'info');
-        addLog(`📊 TOTAL: ${total} pesan`, 'success');
-        addLog(`🔧 MODE: CORS PROXY ACTIVE`, 'success');
-        addLog(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`, 'info');
-        updateStats();
-        
-        for (let i = 0; i < total && !stopFlag; i++) {
-            if (!isSpamming) break;
-            
-            let finalMessage = message;
-            if (Math.random() > 0.5) {
-                finalMessage = addRandomSuffix(message);
-            }
-            
-            addLog(`[${i+1}/${total}] Mengirim...`, 'info');
-            
-            const success = await sendToNGL(username, finalMessage);
-            
-            if (success) {
-                sent++;
-                addLog(`✅ [${i+1}/${total}] TERKIRIM! (Total: ${sent})`, 'success');
-            } else {
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "User-Agent": "Mozilla/5.0 (Linux; Android 13) XYZ Alien Bot"
+                    },
+                    body: payload.toString()
+                });
+                
+                const result = await response.json();
+                if (response.ok && result.status === "success") {
+                    sent++;
+                    logElement.innerHTML = `[✓] Pesan ke-${loopCount+1} terkirim ke @${targetUser} | Sukses: ${sent}, Gagal: ${failed}<br>` + logElement.innerHTML;
+                } else {
+                    failed++;
+                    logElement.innerHTML = `[✗] Gagal kirim! Mungkin kena rate limit atau username salah. (${result.message || "error"})<br>` + logElement.innerHTML;
+                }
+            } catch (err) {
                 failed++;
-                addLog(`❌ [${i+1}/${total}] GAGAL! (Gagal: ${failed})`, 'error');
+                logElement.innerHTML = `[⚠️] Error network: ${err.message}<br>` + logElement.innerHTML;
             }
             
-            updateStats();
-            
-            if (i < total - 1 && !stopFlag) {
-                await new Promise(resolve => setTimeout(resolve, currentDelay));
+            // trim log biar ga numpuk gila-gilaan
+            if (logElement.children.length > 35) {
+                while(logElement.children.length > 30) logElement.removeChild(logElement.lastChild);
             }
+            
+            loopCount++;
+            if (!isInfinite && loopCount >= maxCount) break;
+            
+            await new Promise(resolve => setTimeout(resolve, delayMs));
         }
         
-        addLog(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`, 'info');
-        if (stopFlag) {
-            addLog(`⛔ SPAM DIHENTIKAN!`, 'error');
+        if (stopRequested) {
+            logElement.innerHTML = `[⏸️] SPAM DIHENTIKAN MANUAL. Total terkirim: ${sent}, gagal: ${failed}<br>` + logElement.innerHTML;
         } else {
-            addLog(`🎉 SPAM SELESAI! 🎉`, 'success');
+            logElement.innerHTML = `[🏁] SPAM SELESAI. Total sukses: ${sent}, gagal: ${failed}<br>` + logElement.innerHTML;
         }
-        addLog(`📊 Hasil: ${sent} sukses, ${failed} gagal`, 'info');
-        addLog(`💀 @${username} banjir notifikasi!`, 'success');
-        addLog(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`, 'info');
-        
         isSpamming = false;
-        startBtn.disabled = false;
-        stopBtn.disabled = true;
+        stopRequested = false;
     }
     
-    function stopSpam() {
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const logArea = document.getElementById("logArea");
+    const targetInput = document.getElementById("target");
+    const pesanInput = document.getElementById("pesan");
+    const jumlahInput = document.getElementById("jumlah");
+    const delayInput = document.getElementById("delay");
+    
+    startBtn.addEventListener("click", async () => {
         if (isSpamming) {
-            stopFlag = true;
-            isSpamming = false;
-            addLog('🛑 Menghentikan spam...', 'info');
-            startBtn.disabled = false;
-            stopBtn.disabled = true;
-        } else {
-            addLog('⚠️ Tidak ada spam yang berjalan', 'error');
+            logArea.innerHTML = "[⚠️] Masih ada spam yang jalan! STOP dulu atau tunggu selesai.<br>" + logArea.innerHTML;
+            return;
         }
-    }
-    
-    function clearLogs() {
-        logBox.innerHTML = '';
-        addLog('🧹 Log dibersihkan', 'info');
-        addLog('🔥 NGL Spammer V8 siap digunakan', 'success');
-        addLog('✅ PAKAI CORS PROXY - PASTI KONEK!', 'success');
-        addLog('📌 Masukkan username target', 'info');
-    }
-    
-    // Speed selector
-    const speedBtns = document.querySelectorAll('.speed-btn');
-    speedBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            speedBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            currentDelay = parseInt(this.dataset.delay);
-            addLog(`⚡ Kecepatan: ${this.innerText.split('\n')[0]} (${currentDelay}ms)`, 'info');
-        });
+        
+        let targetRaw = targetInput.value.trim();
+        let pesan = pesanInput.value.trim();
+        let jumlahRaw = jumlahInput.value.trim();
+        let delayMs = parseInt(delayInput.value);
+        
+        if (!targetRaw) {
+            logArea.innerHTML = "[❌] GOBLOK! Username/link target kosong!<br>" + logArea.innerHTML;
+            return;
+        }
+        if (!pesan) {
+            logArea.innerHTML = "[❌] Pesan spam ga boleh kosong, tai!<br>" + logArea.innerHTML;
+            return;
+        }
+        if (isNaN(delayMs) || delayMs < 50) {
+            delayMs = 500;
+            logArea.innerHTML = "[⚠️] Delay gak valid, pake default 500ms<br>" + logArea.innerHTML;
+        }
+        
+        let jumlah = parseInt(jumlahRaw);
+        if (isNaN(jumlah)) jumlah = 10;
+        if (jumlahRaw === "00" || jumlahRaw === "0") jumlah = 0; // 0 = infinite
+        
+        const username = extractUsername(targetRaw);
+        if (!username) {
+            logArea.innerHTML = "[❌] Gagal ekstrak username. Contoh: @ngl_users atau ngl.link/anjay<br>" + logArea.innerHTML;
+            return;
+        }
+        
+        logArea.innerHTML = `[🚀] MULAI SPAM ke @${username} | Jumlah: ${jumlah === 0 ? "♾️ PERMANEN (stop manual)" : jumlah} | Delay: ${delayMs}ms<br>` + logArea.innerHTML;
+        
+        isSpamming = true;
+        stopRequested = false;
+        try {
+            await sendSpam(username, pesan, delayMs, jumlah, logArea);
+        } catch(e) {
+            logArea.innerHTML = "[💀] CRASH BANGSAT: " + e.message + "<br>" + logArea.innerHTML;
+            isSpamming = false;
+        }
     });
     
-    startBtn.addEventListener('click', startSpam);
-    stopBtn.addEventListener('click', stopSpam);
-    clearBtn.addEventListener('click', clearLogs);
-    
-    addLog('[SYSTEM] NGL Spammer V8 loaded!', 'success');
-    addLog('[✅] CORS PROXY ACTIVE - NO CONNECTION ERROR', 'success');
+    stopBtn.addEventListener("click", () => {
+        if (!isSpamming) {
+            logArea.innerHTML = "[⚠️] Gak ada spam yang berjalan, santai kontol!<br>" + logArea.innerHTML;
+            return;
+        }
+        stopRequested = true;
+        isSpamming = false;
+        logArea.innerHTML = "[🛑] Menghentikan spam... tunggu sebentar.<br>" + logArea.innerHTML;
+    });
 </script>
 </body>
 </html>
