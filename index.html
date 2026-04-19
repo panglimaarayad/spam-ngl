@@ -3,300 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGL SPAMMER UNGU - XYZ ALIEN</title>
+    <title>XYZ ALIEN V4.8 - MATRIX ARCHITECT</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap');
+        
+        :root { 
+            --blood: #ff0000; 
+            --dark: #000000; 
+            --terminal-gray: #5a7a5a;
+            --terminal-green: #44cc44;
         }
-        body {
-            background: linear-gradient(135deg, #4b0082, #8a2be2);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
+
+        * { box-sizing: border-box; }
+        body { 
+            background: var(--dark); 
+            color: white; 
+            font-family: 'Share Tech Mono', monospace; 
+            margin: 0; 
+            overflow-x: hidden;
+        }
+
+        /* LOGIN PAGE - PERFECT CENTER */
+        #login-screen {
+            position: fixed; 
+            inset: 0; 
+            background: #000; 
+            z-index: 9999;
+            display: flex; 
+            justify-content: center; 
             align-items: center;
-            font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
-            padding: 20px;
         }
-        .container {
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            border-radius: 32px;
-            padding: 30px;
-            max-width: 550px;
-            width: 100%;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        h1 {
+        .login-box {
+            width: 100%; 
+            max-width: 350px; 
+            padding: 40px 30px; 
+            border: 1px solid #111;
+            background: #050000; 
             text-align: center;
-            color: white;
-            margin-bottom: 10px;
-            font-size: 28px;
-            letter-spacing: 1px;
         }
-        .alien {
-            text-align: center;
-            font-size: 40px;
+        .login-box h2 {
+            font-family: 'Orbitron';
+            color: var(--blood);
+            font-size: 22px;
+            margin-bottom: 30px;
+            letter-spacing: 5px;
+        }
+
+        /* MAIN LAYOUT - V3 VIBES (BLANK & CLEAN) */
+        header { 
+            padding: 20px; 
+            border-bottom: 1px solid #111; 
+            display: flex; 
+            justify-content: space-between; 
+            font-size: 11px; 
+            color: #444; 
+            text-transform: uppercase;
+        }
+
+        .container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            padding: 15px; 
+            gap: 15px; 
+        }
+
+        .card { 
+            border: 1px solid #0f0f0f; 
+            background: transparent;
+            padding: 20px; 
+            flex: 1; 
+            min-width: 320px; 
+        }
+
+        h3 { 
+            font-family: 'Orbitron'; 
+            color: var(--blood); 
+            font-size: 12px; 
+            margin-top: 0; 
             margin-bottom: 20px;
+            letter-spacing: 2px;
         }
-        label {
-            display: block;
-            color: white;
-            font-weight: 500;
-            margin-top: 15px;
-            margin-bottom: 6px;
-            font-size: 14px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 14px 16px;
-            background: #2d1b3e;
-            border: 1px solid #b77aff;
-            border-radius: 24px;
-            color: white;
-            font-size: 15px;
-            outline: none;
-            transition: 0.2s;
-            font-family: monospace;
-        }
-        input:focus, textarea:focus {
-            border-color: #ff66cc;
-            box-shadow: 0 0 8px #ff66cc;
-            background: #1e102c;
-        }
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-        .row {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .row > div {
-            flex: 1;
-        }
-        button {
-            width: 100%;
-            margin-top: 25px;
-            padding: 14px;
-            background: #ff44b0;
-            border: none;
-            border-radius: 40px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 5px 0 #9e2a6b;
-        }
-        button:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #9e2a6b;
-        }
-        .status {
-            margin-top: 20px;
-            background: #000000aa;
-            border-radius: 20px;
-            padding: 12px;
-            color: #0f0;
-            font-family: monospace;
+
+        /* INPUTS */
+        input, textarea, select { 
+            width: 100%; 
+            background: transparent; 
+            border: none; 
+            border-bottom: 1px solid #1a1a1a;
+            color: #fff; 
+            padding: 12px 5px; 
+            margin: 8px 0; 
+            outline: none; 
+            font-family: inherit;
             font-size: 13px;
-            max-height: 200px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            word-break: break-all;
         }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #ffccff;
-            font-size: 12px;
+        input:focus { border-bottom: 1px solid var(--blood); }
+
+        button { 
+            width: 100%; 
+            padding: 14px; 
+            background: transparent; 
+            color: var(--blood); 
+            border: 1px solid var(--blood); 
+            font-family: 'Orbitron'; 
+            font-size: 11px;
+            cursor: pointer; 
+            margin-top: 15px;
+            transition: 0.3s;
         }
-        ::placeholder {
-            color: #cba5ff;
-            opacity: 0.7;
+        button:hover { 
+            background: var(--blood); 
+            color: #000; 
         }
-        input[type="number"] {
-            -moz-appearance: textfield;
+
+        /* TERMINAL HIJAU ABU-ABU */
+        .terminal { 
+            background: #000; 
+            height: 220px; 
+            border: 1px solid #0f0f0f; 
+            padding: 10px; 
+            font-size: 11px; 
+            color: var(--terminal-gray); 
+            overflow-y: auto; 
+            margin-top: 15px;
+            border-left: 2px solid #1a1a1a;
+        }
+        .new-log { 
+            color: var(--terminal-green); 
+            text-shadow: 0 0 5px rgba(68, 204, 68, 0.2); 
+        }
+
+        .role-badge {
+            font-size: 9px;
+            border: 1px solid #333;
+            padding: 1px 4px;
+            margin-left: 8px;
+            color: #888;
+        }
+
+        .hidden { display: none !important; }
+
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .card { min-width: 100%; }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="alien">👽 XYZ ALIEN 👽</div>
-    <h1>NGL SPAMMER UNGU</h1>
-    <label>🔗 Username / Link Target (contoh: @bocil atau https://ngl.link/username)</label>
-    <input type="text" id="target" placeholder="@bocil_keren atau username aja" value="">
 
-    <label>💬 Isi Pesan (bisa pakai emoji)</label>
-    <textarea id="pesan" placeholder="Tulis pesan spam disini... misal: LO SERBA SALAH BANGSAT!"></textarea>
+<div id="login-screen">
+    <div class="login-box">
+        <h2>XYZ ALIEN</h2>
+        <input type="text" id="l-usn" placeholder="USERNAME">
+        <input type="password" id="l-pw" placeholder="PASSWORD">
+        <button onclick="auth()">VERIFY</button>
+    </div>
+</div>
 
-    <div class="row">
-        <div>
-            <label>📦 Jumlah Pesan (00 = permanen 🔁)</label>
-            <input type="text" id="jumlah" value="10" placeholder="00 atau angka">
+<div id="main-app" class="hidden">
+    <header>
+        <div id="greet"></div>
+        <div>V4.8 MATRIX ARCHITECT</div>
+    </header>
+
+    <div class="container">
+        <div id="side-mgmt" class="card hidden">
+            <div id="role-maker" class="hidden">
+                <h3>ROLE ARCHITECT</h3>
+                <input type="text" id="role-name" placeholder="ROLE NAME">
+                <select id="role-auth">
+                    <option value="high">HIGH (MASTER ACCESS)</option>
+                    <option value="mid">MID (MANAGER ACCESS)</option>
+                    <option value="low">LOW (STRIKE ONLY)</option>
+                </select>
+                <button onclick="addNewRole()">BUILD ROLE</button>
+                <hr style="border:0; border-top:1px solid #111; margin: 20px 0;">
+            </div>
+
+            <h3>ENTITY DEPLOYMENT</h3>
+            <input type="text" id="n-usn" placeholder="USN">
+            <input type="password" id="n-pw" placeholder="PW">
+            <select id="n-role-list"></select>
+            <input type="number" id="n-delay" placeholder="FIXED DELAY (ms)">
+            <input type="text" id="n-count" placeholder="FIXED COUNT (00=∞)">
+            <button onclick="createEntity()">SAVE ENTITY</button>
+            
+            <div id="db-list" style="margin-top:25px;"></div>
         </div>
-        <div>
-            <label>⏱️ Delay (ms)</label>
-            <input type="number" id="delay" value="500" placeholder="milidetik">
+
+        <div class="card">
+            <h3>STRIKE MODULE</h3>
+            <input type="text" id="target" placeholder="TARGET USN">
+            <textarea id="msg" rows="3" placeholder="PAYLOAD MESSAGE"></textarea>
+            
+            <div id="custom-params" class="hidden">
+                <input type="number" id="c-delay" placeholder="CUSTOM DELAY (ms)">
+                <input type="text" id="c-count" placeholder="CUSTOM COUNT (00=∞)">
+            </div>
+
+            <div id="lock-notice" class="hidden" style="color:#222; font-size:10px; margin: 10px 0; letter-spacing: 1px;">
+                [!] PARAMETERS ENCRYPTED & LOCKED BY ARCHITECT
+            </div>
+
+            <button id="fire-btn" onclick="startStrike()">EXECUTE</button>
+            <button id="stop-btn" class="hidden" onclick="stopStrike()" style="border-color:#300; color:#300;">ABORT</button>
+            
+            <div id="strike-status" style="font-size: 10px; color: #333; margin-top: 15px; border-top: 1px solid #0f0f0f; padding-top: 10px;">
+                SYSTEM STANDBY
+            </div>
+
+            <div class="terminal" id="term"></div>
         </div>
     </div>
-
-    <button id="startBtn">🚀 MULAI SPAM NGL 👽</button>
-    <button id="stopBtn" style="background:#444; margin-top:10px; box-shadow:none;">⏹️ STOP SPAM</button>
-
-    <div class="status" id="logArea">
-        [●] Siap menjalankan perintah King Angzz...
-    </div>
-    <div class="footer">POWERED BY @KINGANGZZ</div>
 </div>
 
 <script>
-    let isSpamming = false;
-    let stopRequested = false;
-    let currentInterval = null;
+    // CORE DATABASE
+    const defaultUsers = [
+        {usn: "XYZXYTERZ", pw: "ALIEN", role: "DEV", d: 0, c: 0},
+        {usn: "XYZ ALIEN", pw: "xx", role: "ALIEN", d: 0, c: 0}
+    ];
+    const defaultRoles = [
+        {name: "DEV", auth: "high"}, {name: "ALIEN", auth: "high"},
+        {name: "ADMIN", auth: "high"}, {name: "PT", auth: "mid"},
+        {name: "RESELLER", auth: "mid"}, {name: "USER", auth: "low"}
+    ];
 
-    // Fungsi ekstrak username dari NGL
-    function extractUsername(input) {
-        let clean = input.trim();
-        if (clean.includes("ngl.link/")) {
-            let split = clean.split("ngl.link/");
-            let user = split[split.length-1].split("?")[0].split("#")[0];
-            return user;
-        }
-        if (clean.startsWith("@")) {
-            return clean.substring(1);
-        }
-        return clean;
+    let db = JSON.parse(localStorage.getItem('v48_db')) || defaultUsers;
+    let roles = JSON.parse(localStorage.getItem('v48_roles')) || defaultRoles;
+    let session = null;
+    let active = false;
+
+    function saveAll() {
+        localStorage.setItem('v48_db', JSON.stringify(db));
+        localStorage.setItem('v48_roles', JSON.stringify(roles));
     }
 
-    async function sendSpam(targetUser, message, delayMs, maxCount, logElement) {
-        // Endpoint NGL yang asli (API terbaru)
-        const url = "https://ngl.link/api/submit";
-        let sent = 0;
-        let failed = 0;
+    function auth() {
+        const u = document.getElementById('l-usn').value;
+        const p = document.getElementById('l-pw').value;
+        const user = db.find(x => x.usn === u && x.pw === p);
+        if(user) {
+            session = user;
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('main-app').classList.remove('hidden');
+            init();
+        } else { alert("ACCESS DENIED."); }
+    }
+
+    function init() {
+        document.getElementById('greet').innerHTML = `HALO, ${session.usn} | ROLE: ${session.role}`;
+        const myRoleInfo = roles.find(r => r.name === session.role);
         
-        // Kalau maxCount = 0 (00) -> loop sampe stop manual
-        let isInfinite = (maxCount === 0);
-        let loopCount = 0;
-        
-        while (isSpamming && (isInfinite || loopCount < maxCount)) {
-            if (stopRequested) break;
-            
-            const payload = new URLSearchParams();
-            payload.append("username", targetUser);
-            payload.append("question", message);
-            payload.append("deviceId", "xyz_alien_" + Date.now() + Math.random());
-            
-            try {
-                const response = await fetch(url, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded",
-                        "User-Agent": "Mozilla/5.0 (Linux; Android 13) XYZ Alien Bot"
-                    },
-                    body: payload.toString()
-                });
-                
-                const result = await response.json();
-                if (response.ok && result.status === "success") {
-                    sent++;
-                    logElement.innerHTML = `[✓] Pesan ke-${loopCount+1} terkirim ke @${targetUser} | Sukses: ${sent}, Gagal: ${failed}<br>` + logElement.innerHTML;
-                } else {
-                    failed++;
-                    logElement.innerHTML = `[✗] Gagal kirim! Mungkin kena rate limit atau username salah. (${result.message || "error"})<br>` + logElement.innerHTML;
-                }
-            } catch (err) {
-                failed++;
-                logElement.innerHTML = `[⚠️] Error network: ${err.message}<br>` + logElement.innerHTML;
-            }
-            
-            // trim log biar ga numpuk gila-gilaan
-            if (logElement.children.length > 35) {
-                while(logElement.children.length > 30) logElement.removeChild(logElement.lastChild);
-            }
-            
-            loopCount++;
-            if (!isInfinite && loopCount >= maxCount) break;
-            
-            await new Promise(resolve => setTimeout(resolve, delayMs));
+        // Setup Management Otoritas
+        if(myRoleInfo && (myRoleInfo.auth === "high" || myRoleInfo.auth === "mid")) {
+            document.getElementById('side-mgmt').classList.remove('hidden');
+            if(session.role === "DEV") document.getElementById('role-maker').classList.remove('hidden');
+            updateDropdown();
+            renderDB();
         }
-        
-        if (stopRequested) {
-            logElement.innerHTML = `[⏸️] SPAM DIHENTIKAN MANUAL. Total terkirim: ${sent}, gagal: ${failed}<br>` + logElement.innerHTML;
+
+        // Setup Strike Otoritas
+        if(session.role !== "USER" && session.role !== "RESELLER") {
+            document.getElementById('custom-params').classList.remove('hidden');
         } else {
-            logElement.innerHTML = `[🏁] SPAM SELESAI. Total sukses: ${sent}, gagal: ${failed}<br>` + logElement.innerHTML;
+            document.getElementById('lock-notice').classList.remove('hidden');
+            document.getElementById('strike-status').innerHTML = `LOCKED PARAMETERS: ${session.d}ms / ${session.c === '00' ? '∞' : session.c} LIMIT`;
         }
-        isSpamming = false;
-        stopRequested = false;
+        log("ESTABLISHING SECURE CONNECTION...");
+        log("SYSTEM STABLE. READY FOR OVERRIDE.");
     }
-    
-    const startBtn = document.getElementById("startBtn");
-    const stopBtn = document.getElementById("stopBtn");
-    const logArea = document.getElementById("logArea");
-    const targetInput = document.getElementById("target");
-    const pesanInput = document.getElementById("pesan");
-    const jumlahInput = document.getElementById("jumlah");
-    const delayInput = document.getElementById("delay");
-    
-    startBtn.addEventListener("click", async () => {
-        if (isSpamming) {
-            logArea.innerHTML = "[⚠️] Masih ada spam yang jalan! STOP dulu atau tunggu selesai.<br>" + logArea.innerHTML;
-            return;
-        }
+
+    function updateDropdown() {
+        const sel = document.getElementById('n-role-list');
+        sel.innerHTML = "";
+        roles.forEach(r => {
+            if(session.role === "DEV") sel.innerHTML += `<option value="${r.name}">${r.name}</option>`;
+            else if(session.role === "ALIEN" && r.name !== "DEV") sel.innerHTML += `<option value="${r.name}">${r.name}</option>`;
+            else if(r.auth === "low" || r.name === "PT") sel.innerHTML += `<option value="${r.name}">${r.name}</option>`;
+        });
+    }
+
+    function addNewRole() {
+        const n = document.getElementById('role-name').value.toUpperCase();
+        const a = document.getElementById('role-auth').value;
+        if(!n || roles.find(r => r.name === n)) return;
+        roles.push({name: n, auth: a});
+        saveAll(); updateDropdown();
+        log(`ROLE ${n} ARCHITECTED SUCCESSFULLY.`);
+    }
+
+    function createEntity() {
+        const u = document.getElementById('n-usn').value, p = document.getElementById('n-pw').value;
+        const d = document.getElementById('n-delay').value, c = document.getElementById('n-count').value;
+        const r = document.getElementById('n-role-list').value;
+        if(!u || !p || !d || !c) return;
+        db.push({usn: u, pw: p, role: r, d: parseInt(d), c: c});
+        saveAll(); renderDB();
+        log(`ENTITY ${u} (${r}) STORED IN DATABASE.`);
+    }
+
+    function renderDB() {
+        const list = document.getElementById('db-list');
+        list.innerHTML = "<h3>SYNDICATE DB</h3>";
+        db.forEach((u, i) => {
+            let canDel = (session.role === "DEV") || (session.role === "ALIEN" && u.role !== "DEV");
+            if(u.usn === session.usn) canDel = false;
+            list.innerHTML += `<div style="font-size:11px; color:#222; margin-bottom:8px; display:flex; justify-content:space-between;">
+                <span>${u.usn} <span class="role-badge">${u.role}</span></span>
+                ${canDel ? `<span onclick="del(${i})" style="color:red; cursor:pointer;">[DELETE]</span>`:''}
+            </div>`;
+        });
+    }
+
+    function del(i) { db.splice(i,1); saveAll(); renderDB(); log("ENTITY TERMINATED."); }
+
+    function log(m) {
+        const t = document.getElementById('term');
+        t.innerHTML = `<div class="new-log">> ${m}</div>` + t.innerHTML;
+    }
+
+    function stopStrike() { active = false; }
+
+    async function startStrike() {
+        const target = document.getElementById('target').value;
+        const msg = document.getElementById('msg').value;
         
-        let targetRaw = targetInput.value.trim();
-        let pesan = pesanInput.value.trim();
-        let jumlahRaw = jumlahInput.value.trim();
-        let delayMs = parseInt(delayInput.value);
-        
-        if (!targetRaw) {
-            logArea.innerHTML = "[❌] GOBLOK! Username/link target kosong!<br>" + logArea.innerHTML;
-            return;
+        let d, cRaw;
+        if(session.role === "USER" || session.role === "RESELLER") {
+            d = session.d; cRaw = session.c;
+        } else {
+            d = parseInt(document.getElementById('c-delay').value) || 500;
+            cRaw = document.getElementById('c-count').value;
         }
-        if (!pesan) {
-            logArea.innerHTML = "[❌] Pesan spam ga boleh kosong, tai!<br>" + logArea.innerHTML;
-            return;
+
+        if(!target || !msg) return alert("INPUT REQUIRED.");
+        active = true;
+        document.getElementById('fire-btn').classList.add('hidden');
+        document.getElementById('stop-btn').classList.remove('hidden');
+
+        let isInf = (cRaw === "00");
+        let limit = isInf ? Infinity : parseInt(cRaw);
+        let sent = 0;
+
+        log(`STRIKE INITIATED ON: ${target}`);
+
+        while(active && sent < limit) {
+            fetch(`https://ngl.link/api/submit`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({username: target, question: msg, deviceId: 'mx-'+Math.random()})
+            });
+            sent++;
+            if(sent % 5 === 0 || !isInf) log(`SENT: ${sent}${isInf?'/∞':''}`);
+            await new Promise(r => setTimeout(r, d));
         }
-        if (isNaN(delayMs) || delayMs < 50) {
-            delayMs = 500;
-            logArea.innerHTML = "[⚠️] Delay gak valid, pake default 500ms<br>" + logArea.innerHTML;
-        }
-        
-        let jumlah = parseInt(jumlahRaw);
-        if (isNaN(jumlah)) jumlah = 10;
-        if (jumlahRaw === "00" || jumlahRaw === "0") jumlah = 0; // 0 = infinite
-        
-        const username = extractUsername(targetRaw);
-        if (!username) {
-            logArea.innerHTML = "[❌] Gagal ekstrak username. Contoh: @ngl_users atau ngl.link/anjay<br>" + logArea.innerHTML;
-            return;
-        }
-        
-        logArea.innerHTML = `[🚀] MULAI SPAM ke @${username} | Jumlah: ${jumlah === 0 ? "♾️ PERMANEN (stop manual)" : jumlah} | Delay: ${delayMs}ms<br>` + logArea.innerHTML;
-        
-        isSpamming = true;
-        stopRequested = false;
-        try {
-            await sendSpam(username, pesan, delayMs, jumlah, logArea);
-        } catch(e) {
-            logArea.innerHTML = "[💀] CRASH BANGSAT: " + e.message + "<br>" + logArea.innerHTML;
-            isSpamming = false;
-        }
-    });
-    
-    stopBtn.addEventListener("click", () => {
-        if (!isSpamming) {
-            logArea.innerHTML = "[⚠️] Gak ada spam yang berjalan, santai kontol!<br>" + logArea.innerHTML;
-            return;
-        }
-        stopRequested = true;
-        isSpamming = false;
-        logArea.innerHTML = "[🛑] Menghentikan spam... tunggu sebentar.<br>" + logArea.innerHTML;
-    });
+        active = false;
+        document.getElementById('fire-btn').classList.remove('hidden');
+        document.getElementById('stop-btn').classList.add('hidden');
+        log("STRIKE SEQUENCE FINISHED.");
+    }
 </script>
+
 </body>
 </html>
